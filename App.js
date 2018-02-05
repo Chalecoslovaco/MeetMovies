@@ -17,6 +17,16 @@ router.get('/', (req, res) => {
 });
 app.use(router);
 
-app.listen(3000, () => {
-    console.log('Node server running on http://localhost:3000');
+let Models = require("./models");
+
+let Genre = new Models.Genre({
+    name: "Action",
+    color: "#FFFFFF"
+ });
+
+Genre.save(function(error) { 
+    console.log("Your Genre has been saved.");
+if (error) {
+    console.error(error);
+   }
 });
